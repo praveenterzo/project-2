@@ -10,8 +10,7 @@ pipeline {
     }
 
     triggers {
-        // Optional: in addition to webhook, poll SCM every 5 mins
-        // pollSCM('H/5 * * * *')
+        githubPush()  
     }
 
     stages {
