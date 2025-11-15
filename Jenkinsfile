@@ -46,7 +46,9 @@ pipeline {
         stage('Deploy to EKS') {
             steps {
                 sh """
-             
+                
+                echo "Using kubeconfig at: $KUBECONFIG"
+
                 sed -i 's#image: .*#image: ${DOCKER_IMAGE}:latest#g' deployment.yaml
 
                 kubectl apply -n ${K8S_NAMESPACE} -f deployment.yaml
