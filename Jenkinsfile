@@ -49,10 +49,7 @@ pipeline {
             steps {
                 // FIX: This credential ID must be the exact ID of your AWS Secret Key credential saved in Jenkins.
                 withCredentials([
-                    [$class: 'AmazonWebServicesCredentialsBinding', 
-                     credentialsId: 'Aws-credentials'
-                     accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
-                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']
+                    [$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'Aws-credentials', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']
                 ]) {
                     sh """
                         echo "Using kubeconfig at: ${KUBECONFIG}"
