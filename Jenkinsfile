@@ -47,7 +47,7 @@ pipeline {
              
                 sed -i 's#image: .*#image: ${DOCKER_IMAGE}:latest#g' deployment.yaml
 
-                kubectl apply -n ${K8S_NAMESPACE} -f deployment.yaml
+                kubectl apply -n ${K8S_NAMESPACE} -f deployments.yaml
                 kubectl apply -n ${K8S_NAMESPACE} -f service.yaml
 
                 echo "Current services:" 
