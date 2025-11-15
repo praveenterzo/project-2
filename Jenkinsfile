@@ -45,6 +45,10 @@ pipeline {
 
         stage('Deploy to EKS') {
             steps {
+                withCredentials([
+                    // Ensure the type is 'Amazon Web Services' credential
+                    [$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws configure', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']
+                ]) {
                 sh """
                 
                 echo "Using kubeconfig at: $KUBECONFIG"
