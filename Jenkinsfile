@@ -2,6 +2,8 @@ pipeline {
     agent any
 
     environment {
+        KUBECONFIG = "/var/lib/jenkins/.kube/config"
+        AWS_REGION = "us-east-1"
         DOCKERHUB_CREDENTIALS = 'docker-hub'
         DOCKER_IMAGE = 'praveensise/trend-app'
         K8S_NAMESPACE = 'default'
