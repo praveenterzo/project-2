@@ -5,7 +5,7 @@ pipeline {
     environment {
         KUBECONFIG = "/var/lib/jenkins/.kube/config" 
         AWS_REGION = "us-east-1"
-        DOCKERHUB_CREDENTIALS = 'docker-hub' 
+        DOCKERHUB_CREDENTIALS = 'cad885a0-290a-4a9e-910b-cfd596248508' 
         DOCKER_IMAGE = 'praveensise/trend-app'
         K8S_NAMESPACE = 'default'
     }
@@ -49,7 +49,7 @@ pipeline {
             steps {
                 // FIX: This credential ID must be the exact ID of your AWS Secret Key credential saved in Jenkins.
                 withCredentials([
-                    [$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'Aws-credentials', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']
+                    [$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-credentials', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']
                 ]) {
                     sh """
                         echo "Using kubeconfig at: ${KUBECONFIG}"
