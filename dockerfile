@@ -6,4 +6,4 @@ RUN rm -rf ./*
 
 COPY . . 
 
-EXPOSE 3000
+EXPOSE 80
